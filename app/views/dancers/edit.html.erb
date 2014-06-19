@@ -8,14 +8,6 @@
     <%= f.text_field :genre %>
   </p>
   <p>
-    <%= f.submit 'Create Dancer' %>
+    <%= f.submit 'Update dancer' %>
   </p>
-<% end %>
-
-<% @dancers.each do |dancer| %>
-<ul>
-  <li>
-    <%= link_to "#{dancer.name}", dancer_path(dancer) %>, <%= dancer.genre %>
-  </li>
-</ul>
 <% end %>

@@ -14,6 +14,21 @@ class DancersController < ApplicationController
     end
   end
 
+  def show
+    @dancer = Dancer.find(params[:id])
+  end
+
+  def edit
+    @dancer = Dancer.find(params[:id])
+  end
+
+  def update
+    @dancer = Dancer.find(params[:id])
+    @dancer.update_attributes!(dancer_params)
+
+    redirect_to dancers_path
+  end
+
 
   private
   def dancer_params

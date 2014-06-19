@@ -29,6 +29,12 @@ class DancersController < ApplicationController
     redirect_to dancers_path
   end
 
+  def destroy
+    @dancer = Dancer.find(params[:id]).delete
+
+    redirect_to dancers_path
+  end
+
 
   private
   def dancer_params

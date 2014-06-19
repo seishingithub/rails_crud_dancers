@@ -32,4 +32,20 @@ feature 'Manage Dancers' do
     expect(page).to have_content 'Michael Jackson'
     expect(page).to have_content 'pop'
   end
+
+  scenario 'User can delete dancers from list' do
+    visit '/'
+    click_on 'Add a Dancer'
+    fill_in 'Name', with: 'Mikhail Baryshnikov'
+    fill_in 'Genre', with: 'ballet'
+    click_on 'Create Dancer'
+    expect(page).to have_content 'Mikhail Baryshnikov'
+    expect(page).to have_content 'ballet'
+    click_on 'Mikhail'
+    expect(page).to have_content 'Mikhail Baryshnikov'
+    expect(page).to have_content 'ballet'
+    click_on 'Delete dancer'
+    expect(page).to have_no_content 'Mikhail Baryshnikov'
+    expect(page).to have_no_content 'ballet'
+  end
 end
